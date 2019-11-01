@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.container {
+    background-color: #44798E;
+    height: 500px;
+    width: auto;
+}
+#grad1 {
+    height: 900px;
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(90, 90, 90), rgb(70, 69, 69)); /* Standard syntax (must be last) */
+}
+
+.header {
+      width: 100%;
+      height: 100px;
+      background-color: aliceblue;
+}
+
+.content
