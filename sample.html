@@ -14,22 +14,20 @@
     <body>
         <div class="bg-image"></div>
         <div class="bg-text"> 
+                <img src="img1.png" alt="AICS LOGO" class="logo">
             <h1 style="font-family: 'Bowlby One SC', cursive;">Asian Institute of Computer Studies Portal</h1>
         </div>
-        <div class="login-box">
-            <div class="choose">
-                <h1>Login as: </h1>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h1>Teacher</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <h1>Student</h1>
-                    </div>
+        <h1 class="type">Login as: </h1>
+        <div class="login-box"> 
+            <div class="row">
+                <div class="col-sm-6">
+                        <button id="teacher" class="btn btn-primary">Teacher</button>
+                </div>
+                <div class="col-sm-6">
+                        <button id="student" class="btn btn-primary">Student</button>
                 </div>
             </div>
-            <img src="img1.png" alt="AICS LOGO" class="logo">
-            <form action="" hidden="true" id="form">
+            <form action="teacher.php" class="tlogin">
                 <h1>Teacher Login</h1>
                 <div class="form-column">
                     <label for="">Username </label><br>
@@ -41,7 +39,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
-            <form action="" hidden="true" id="form">
+            <form action="" class="slogin">
                     <h1>Student Login</h1>
                     <div class="form-column">
                         <label for="">Username </label><br>
@@ -53,6 +51,31 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
-        </div>
+                
+        <script>
+            $(function(){
+                $('#teacher').click(function(){
+                    $('.tlogin').fadeIn(300);
+                });
+            });
+            $(function(){
+                $('#teacher').click(function(){
+                    $('.slogin').hide();
+                });
+            });
+            $(function(){
+                $('#student').click(function(){
+                    $('.slogin').fadeIn(300);
+                });
+            });
+
+            $(function(){
+                $('#student').click(function(){
+                    $('.tlogin').hide();
+                });
+            });
+
+        </script>
     </body>
 </html>
+
