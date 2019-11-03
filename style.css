@@ -17,6 +17,15 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .bg-image2 {
+    background-image: url("bg4.jpg");
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   
   .bg-text {
     background-color: rgb(0,0,0); 
@@ -146,4 +155,22 @@ body, html {
 }
 .slogin {
   display: none
+}
+form p a:hover {
+  text-decoration: none;
+}
+
+.register-content {
+  width: 80%;
+  height: 600px;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(255, 255, 255, 0.692); 
+  color: rgb(0, 0, 0);
+  top: 530px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border: 3px solid #f1f1f1;
+  border-radius: 15px
 }
