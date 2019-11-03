@@ -13,12 +13,12 @@
     </head>
     <body>
         <div class="bg-image"></div>
-        <div class="bg-text"> 
-            <h1 style="font-family: 'Bowlby One SC', cursive;">Asian Institute of Computer Studies Portal</h1>
+        <div class="bg-text" style="background-color:white;border:3px solid black"> 
+            <h1 style="font-family: 'Bowlby One SC', cursive;color:black">Asian Institute of Computer Studies Portal</h1>
         </div>
-        <div class="login-box">
+        <div class="login-box" style="background-color:white;border:3px solid black;">
             <img src="img1.png" alt="AICS LOGO" class="logo">
-            <h1>Teacher Login</h1>
+            <h1>Student Login</h1>
             <form action="">
                 <div class="form-column">
                     <label for="">Username: </label><br>
