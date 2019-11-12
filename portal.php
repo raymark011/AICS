@@ -14,12 +14,12 @@
     </head>
     <body>
         <div class="header-wrapper">
-            <div class="row flex">
-                <div class="logo">
-                    <img src="aics-logo.png" alt="aics logo" class="img-center">
-                </div>
+            <div class="flex">
                 <div class="text">
                     <h1>Asian Institute of Computer Studies</h1>
+                </div>
+                <div class="logo">
+                    <img src="aics-logo.png" alt="aics logo" class="img-center">
                 </div>
             </div>
         </div>
