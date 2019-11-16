@@ -23,6 +23,12 @@
                 </div>
             </div>
         </div>
+        <div class="img-background">
+            
+        </div>
+        <div class="container">
+            <div class="login-form"></div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
