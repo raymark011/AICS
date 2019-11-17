@@ -10,7 +10,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <title>Sample</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+        <title>AICS PORTAL</title>
     </head>
     <body>
         <div class="header-wrapper">
@@ -22,14 +24,11 @@
                     <img src="aics-logo.png" alt="aics logo" class="img-center">
                 </div>
             </div>
-        </div>
-        <div class="img-background">
-            
-        </div>
         <div class="container">
-            <div class="login-form"></div>
+               
         </div>
         <script src="script.js"></script>
     </body>
 </html>
 
+ 
