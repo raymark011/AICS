@@ -32,9 +32,10 @@ body{
     flex: 1;
     float: center;
     display: none;
-    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right, #25db71, #11d8c7, #00ffea);
     color: white;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    border: 1px solid rgb(0, 255, 213);
 }
 
 .text{
@@ -43,7 +44,7 @@ body{
     padding-top: 23.5px;
     /* border: 1px solid yellow; */
     flex:10;
-    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right, #25db71, #11d8c7, #00ffea);
     color: rgb(24, 24, 24);
     padding-bottom: 23.5px
 }
@@ -206,7 +207,7 @@ a:hover{
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #32bebe, #38d3d3, #32beb2);
+    background-image: linear-gradient(to right, #25db71, #11d8c7, #00ffea);
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;

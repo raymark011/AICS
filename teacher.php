@@ -35,7 +35,7 @@
                               </div>
                               <div class="div">
                                       <h5>Username</h5>
-                                      <input type="text" class="input">
+                                      <input type="text" class="input" name="tusername">
                               </div>
                            </div>
                            <div class="input-div pass">
@@ -44,7 +44,7 @@
                               </div>
                               <div class="div">
                                    <h5>Password</h5>
-                                   <input type="password" class="input">
+                                   <input type="password" class="input" name="tpassword">
                            </div>
                         </div>
                         <a href="#" class="a">Create an Account?</a>
