@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
         <title>TEACHER LOGIN</title>
@@ -21,12 +21,12 @@
                     <h1>Asian Institute of Computer Studies</h1>
                 </div>
                 <div class="logo">
-                    <img src="aics-logo.png" alt="aics logo" class="img-center">
+                    <img src="img/aics-logo.png" alt="aics logo" class="img-center">
                 </div>
             </div>
         <div class="container">
                 <div class="login-content">
-                    <form action="index.html">
+                    <form action="index.html" method="POST">
                         <img src="img/teacher.svg">
                         <h2 style="color: rgb(32, 32, 32)">teacher</h2>
                            <div class="input-div one">
@@ -56,7 +56,7 @@
                         <img src="img/teacher-background.svg">
                     </div>
             </div>
-        <script src="script.js"></script>
+        <script src="script/script.js"></script>
     </body>
 </html>
 

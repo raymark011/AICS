@@ -9,26 +9,34 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-        <title>AICS PORTAL</title>
+        <title>Sample</title>
     </head>
     <body>
-        <div class="header-wrapper">
-            <div class="flex">
-                <div class="text">
-                    <h1>Asian Institute of Computer Studies</h1>
+        <img src="img/choose.svg" alt="" class="mx-auto d-block">
+        <div class="container">
+            <div class="row flex">
+                <div class="col-sm-5 row-content">
+                    <div class="content">
+                        <a href="student.php"><h1>Student</h1></a>
+                        <div class="logo">
+                            <img src="img/student.svg" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="logo">
-                    <img src="aics-logo.png" alt="aics logo" class="img-center">
+                <div class="col-sm-5 row-content">
+                    <div class="content">
+                        <a href="teacher.php"><h1>Teacher</h1></a>
+                        <div class="logo">
+                                <img src="img/teacher.svg" alt="">
+                            </div>
+                    </div>
                 </div>
             </div>
-        <div class="container">
-               
         </div>
         <script src="script.js"></script>
     </body>
 </html>
 
- 

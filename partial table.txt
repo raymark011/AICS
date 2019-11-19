@@ -28,8 +28,8 @@ lname
 gender
 listOfStudents
 listofTeachers
-Strand
-Section
+listofStrand
+listofSection
 
 T:Enrollment
 id
