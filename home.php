@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +21,7 @@
 <body>
     <div class="header-wrapper">
         <div class="logo">
-        <img src="img/aics-logo.png" alt="aics logo" class="mx-auto d-block">
+        <img src="img/aics-logo.png" alt="aics logo" class="mx-auto d-block" style="margin-top: 15px; margin-bottom: 10px">
         </div>
         <div class="text">
             <h6>Asian Institute of Computer Studies</h6>
@@ -43,7 +47,22 @@
     </div>
 
     <div class="content-wrapper">
-        
+        <div class="content-header">
+            <div class="content-title">
+                <h1>Welcome</h1>
+            </div>
+        </div>
+        <div class="content-thumbnails">
+            <div class="thumbnails">
+                ads
+            </div>
+            <div class="thumbnails">
+                ads
+            </div>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
     </div>
 </body>
 </html>
