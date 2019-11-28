@@ -1,38 +1,29 @@
-T:studentinfo
-id
-fname
-lname
-birthdate
-gender
-emailaddress
-phonenumber
-
-T:teacherinfo
-id
-fname
-lname
-birthdate
-gender
-emailaddress
-phonenumber
-
-T:users
-id
+T: users
+uid
+firstname
+lastname
+role
 username
 password
 
-T:admin
-id
-fname
-lname
-gender
-listOfStudents
-listofTeachers
-listofStrand
-listofSection
+T: studentinfo
+sid
+uid 
+emailaddress
+contactnumber
+gender  
+birthdate
+section
+strand
+gradelevel
+nickname
 
-T:Enrollment
-id
-year
-sem
+T: teacherinfo
+tid
+uid
+emailaddress
+contactnumber
+gender
+position
+sectionhandled
 

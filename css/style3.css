@@ -7,25 +7,6 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
-.container{
-    width: 100vw;
-    height: 77vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap :7rem;
-    padding: 0 2rem;
-}
-.header-wrapper{
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-    /* border: 1px solid green */
-}
-.flex {
-    width: 100%;
-    display: flex;
-    /* border: 1px solid red; */
-}
 .logo{
     /* border: 1px solid black; */
     flex: 1;
@@ -42,8 +23,8 @@ body{
     text-align: center;
     padding-top: 23.5px;
     /* border: 1px solid yellow; */
-    flex:10;
     background-image: linear-gradient(to right, #25db71, #11d8c7, #00ffea);
+    flex:10;
     color: rgb(24, 24, 24);
     padding-bottom: 23.5px
 }
@@ -274,18 +255,12 @@ a:hover{
     }
 }
 
-@media screen and (max-height: 400px) {
-    img {
-        display:none;
-    }
-}
-
 
 .register-wrapper{
     margin: 20px;
     padding-left: 5vw;
     padding: 10px 0px;
-    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(238, 238, 238), rgb(255, 255, 255));
+    background-image: linear-gradient(to right, rgb(252, 201, 201), rgb(211, 211, 211), rgb(217, 253, 255));
 
 }
 

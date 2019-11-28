@@ -47,7 +47,7 @@
                                    <input type="password" class="input" name="spassword">
                            </div>
                         </div>
-                        <a href="#" class="a">Create an Account?</a>
+                        <a href="register.php" class="a">Create an Account?</a>
                         <input type="submit" class="btn" value="Login">
                     </form>
                 </div>
