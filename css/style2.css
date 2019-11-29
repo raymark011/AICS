@@ -19,7 +19,7 @@
     width: 100%;
     padding: 10px;
     display: inline-flex;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 
 .overlay-logo {
@@ -34,43 +34,94 @@
     color: white;
 }
 
-.btn {
-    margin: 12px;
-    padding: 12px;
+.content{
+    width: 100%;
+    margin: 550px auto;
+    margin-bottom: 0px;
+    text-align: center;
+    color: black;
     background-color: white;
-    flex: 1;
-    font-size: 20px;
-    margin-top: -10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.btn:hover {
-    background-color: rgba(255, 255, 255, 0.878);
-    color: rgb(20, 20, 20);
-}
-.content{
-    width: 50%;
-    margin-top: 380px;
-    margin: 0px auto;
-    font-size: 36px;
+.content-text{
+    letter-spacing: 4px;
+    background-color: white;
+    height: 700px;
+    padding-top: 20px;
     text-align: center;
-    padding-top: 600px;
-    color: black;
-    border-bottom: 5px solid rgba(0, 162, 255, 0.479);
-    letter-spacing: 2px;
+}
+
+
+
+
+.content-box {
+    display: flex;
+    /* border: 1px solid black; */
 }
 
 .box {
-    display: flex;
+    flex: 1;
+    /* border: 1px solid black; */
     margin: 5px;
-    padding: 5px;
-    border: 1px solid black;
-    height: auto;
 }
 
-.box-items{
-    flex: 1;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid black;
-    
+.logo-text {
+    padding: 15px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: justify;
+    text-indent: 50px;
 }
+
+.logo img{
+    margin: 0px
+}
+
+.footer {
+    display: flex;
+    background-color: gray;
+    height: 200px;
+    margin: 30px 0px;
+}
+
+a {
+    color: rgb(227, 248, 255);
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+    border-top: 2px solid black;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.container-content {
+    border: 1px solid black;
+    margin-top: 150px;
+}
+
+.container-header {
+    width: 100%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    letter-spacing: 20px;
+}
+
+.container-division {
+    display: flex;
+}
+
+.division {
+    flex: 1;
+    font-size: 26px;
+    padding: 15px;
+}
+
+

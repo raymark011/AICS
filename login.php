@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(isset($_SESSION['user'])){
-    header("location:index.php");
+    header("location:home.php");
 }
 include_once ('myconfig.php');
 if(isset($_POST['login'])){
@@ -19,7 +19,7 @@ if(isset($_POST['login'])){
     if($result > 0){
         $_SESSION['user'] = "ok";
         $_SESSION['nickname'] = $nickname;
-        header("location:index.php");
+        header("location:home.php");
     }
     else
     {
@@ -50,6 +50,7 @@ if(isset($_POST['login'])){
                 <input type="text" name="username" class="form-control"><br>
                 <label for="">Password</label><br>
                 <input type="password" name="password" class="form-control"><br>
+                <a href="register.html" class="nav-link">Create an account?</a>
                 <input type="submit" name="login" value="Login" class="btn btn-primary" style="width:100%">
             </form>
         </div>
