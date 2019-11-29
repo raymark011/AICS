@@ -24,7 +24,14 @@
                     <img src="img/aics-logo.png" alt="aics logo" class="img-center">
                 </div>
             </div>
-        <div class="container">
+            <center>
+            <h4>Login as:</h4>
+            </center>
+            <div class="row" style="margin:5px; text-align:center">
+            <button id="bstudent" class="btn2 col-sm-6">Students</button>
+            <button id="bfaculty" class="btn2 col-sm-6">Faculty</button>
+            </div>
+        <div class="container" id="student">
                 <div class="login-content">
                     <form action="index.html">
                         <img src="img/student.svg">
@@ -54,6 +61,41 @@
                 
                 <div class="img">
                         <img src="img/student-background.svg">
+                    </div>
+            </div>
+
+
+
+            <div class="container" id="faculty">
+                <div class="login-content">
+                    <form action="index.html" method="POST">
+                        <img src="img/teacher.svg">
+                        <h2 style="color: rgb(32, 32, 32)">teacher</h2>
+                           <div class="input-div one">
+                              <div class="i">
+                                      <i class="fas fa-user"></i>
+                              </div>
+                              <div class="div">
+                                      <h5>Username</h5>
+                                      <input type="text" class="input" name="tusername">
+                              </div>
+                           </div>
+                           <div class="input-div pass">
+                              <div class="i"> 
+                                   <i class="fas fa-lock"></i>
+                              </div>
+                              <div class="div">
+                                   <h5>Password</h5>
+                                   <input type="password" class="input" name="tpassword">
+                           </div>
+                        </div>
+                        <a href="#" class="a">Create an Account?</a>
+                        <input type="submit" class="btn" value="Login">
+                    </form>
+                </div>
+                
+                <div class="img">
+                        <img src="img/teacher-background.svg">
                     </div>
             </div>
         <script src="script/script.js"></script>

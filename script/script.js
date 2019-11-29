@@ -21,3 +21,17 @@ inputs.forEach(input => {
 });
 
 
+
+var bstudent = document.getElementById('bstudent');
+var bfaculty = document.getElementById("bfaculty");
+var student = document.getElementById('student');
+var faculty = document.getElementById("faculty");
+
+bstudent.onclick = function() {
+	faculty.style.display = "none";
+	student.style.display = "grid";
+}
+bfaculty.onclick = function() {
+	student.style.display = "none";
+	faculty.style.display = "grid";
+}
