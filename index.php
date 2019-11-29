@@ -8,5 +8,4 @@ else{
     echo "<a href=\"adduser.php\">Add New User</a> | ";
     echo "<a href=\"logout.php\">LOG-OUT</a>";
 }
-​
 ?>

@@ -1,148 +1,58 @@
 <?php 
-//check if there is an existing session if there is,
-//it will redirect to index.php
 session_start();
-if(isset($_SESSION['username'])){
+if(isset($_SESSION['user'])){
     header("location:index.php");
 }
-//getting database and server info
-
-require "config.php";
-//checking if the submit button is clicked
-//if it's clicked it will retrieve the
-//values from the textbox
+include_once ('myconfig.php');
 if(isset($_POST['login'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    $sql = "select * from rayanadb.tusers where username = :user and password = :pass ";
-    $query = $conn->prepare($sql);
-    $query -> bindparam(':user', $username);
-    $query -> bindparam(':pass', $password);
-    $query -> execute();
-    //counting the results from the sql string query
-    $count = $query->rowCount();
-    if($count > 0) {
-        //getting the id from the query
-    while($row = $query->fetch(PDO::FETCH_ASSOC)){
-        $id = $row['uid'];
-        $nickname = $row['nickname'];
+   $susername = $_POST['username'];
+   $spassword = $_POST['password'];
+   $sql = "select * from rayanadb.tusers where username = :user && password = :pass";
+   $query = $conn -> prepare($sql);
+   $query -> bindParam(':user', $susername);
+   $query -> bindParam(':pass', $spassword);
+   $query -> execute();
+   while($row = $query->fetch(PDO::FETCH_ASSOC)){
+       $nickname = $row['nickname'];
+   }
+    $result = $query->rowCount();
+    if($result > 0){
+        $_SESSION['user'] = "ok";
+        $_SESSION['nickname'] = $nickname;
+        header("location:index.php");
     }
-    session_start();
-    //setting the session value using the id
-    $_SESSION['user'] = $uid;  
-    $_SESSION['nickname'] = $nickname;
-    echo "Accepted ID: " . $uid;
-    header("location:index.php");
+    else
+    {
+        echo "Error: Wrong Username or Password";
     }
-    else{
-        echo "error";
-    }
-    
+
 }
 ?>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-        <title>STUDENT LOGIN</title>
-    </head>
-    <body>
-        <div class="header-wrapper">
-            <div class="flex">
-                <div class="text">
-                    <h1>Asian Institute of Computer Studies</h1>
-                </div>
-                <div class="logo">
-                    <img src="img/aics-logo.png" alt="aics logo" class="img-center">
-                </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    <title>LOGIN</title>
+</head>
+<body>
+    <header> ASIAN INSTITUTE OF COMPUTER STUDIES</header>
+    <div class="container">
+        <div class="control-wrapper">
+            <div class="control-header">
+                Sign In
             </div>
-            <center>
-            <h4>Login as:</h4>
-            </center>
-            <div class="row" style="margin:5px; text-align:center">
-            <button id="bstudent" class="btn2 col-sm-6">Students</button>
-            <button id="bfaculty" class="btn2 col-sm-6">Faculty</button>
-            </div>
-        <div class="container" id="student">
-                <div class="login-content">
-                    <form action="home.php">
-                        <img src="img/student.svg">
-                        <h2 style="color: rgb(32, 32, 32)">student</h2>
-                           <div class="input-div one">
-                              <div class="i">
-                                      <i class="fas fa-user"></i>
-                              </div>
-                              <div class="div">
-                                      <h5>Username</h5>
-                                      <input type="text" class="input" name="susername" required>
-                              </div>
-                           </div>
-                           <div class="input-div pass">
-                              <div class="i"> 
-                                   <i class="fas fa-lock"></i>
-                              </div>
-                              <div class="div">
-                                   <h5>Password</h5>
-                                   <input type="password" class="input" name="spassword" required>
-                           </div>
-                        </div>
-                        <a href="register.php" class="a">Create an Account?</a>
-                        <input type="submit" class="btn" value="Login">
-                    </form>
-                </div>
-                
-                <div class="img">
-                        <img src="img/student-background.svg">
-                    </div>
-            </div>
-
-
-
-            <div class="container" id="faculty">
-                <div class="login-content">
-                    <form action="home2.php" method="POST">
-                        <img src="img/teacher.svg">
-                        <h2 style="color: rgb(32, 32, 32)">Faculty</h2>
-                           <div class="input-div one">
-                              <div class="i">
-                                      <i class="fas fa-user"></i>
-                              </div>
-                              <div class="div">
-                                      <h5>Username</h5>
-                                      <input type="text" class="input" name="tusername" required>
-                              </div>
-                           </div>
-                           <div class="input-div pass">
-                              <div class="i"> 
-                                   <i class="fas fa-lock"></i>
-                              </div>
-                              <div class="div">
-                                   <h5>Password</h5>
-                                   <input type="password" class="input" name="tpassword" required>
-                           </div>
-                        </div>
-                        <a href="#" class="a">Create an Account?</a>
-                        <input type="submit" class="btn" value="Login">
-                    </form>
-                </div>
-                
-                <div class="img">
-                        <img src="img/teacher-background.svg">
-                    </div>
-            </div>
-        <script src="script/script.js"></script>
-    </body>
+            <form action="login.php" method="POST">
+                <label for="">Username</label><br>
+                <input type="text" name="username" class="form-control"><br>
+                <label for="">Password</label><br>
+                <input type="password" name="password" class="form-control"><br>
+                <input type="submit" name="login" value="Login" class="btn btn-primary" style="width:100%">
+            </form>
+        </div>
+    </div>
+</body>
 </html>
-
- 
