@@ -41,6 +41,7 @@ body{
 	/* border: 1px solid red; */
 	text-align: center;
 	padding-top: 38px;
+	text-decoration: none;
 
 }
 .nav-items:hover{
@@ -48,6 +49,7 @@ body{
 	border-top: 8px solid rgb(0, 0, 0);
 	color: rgb(27, 139, 143);
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .content-wrapper {

@@ -1,7 +1,33 @@
 <?php 
 session_start();
-
+if(!isset($_SESSION['username'])){
+    header("location:index.php");
+}
+include_once ('config.php');
+if(isset($_POST['login'])){
+   $susername = $_POST['username'];
+   $spassword = $_POST['password'];
+   $sql = "select * from rayanadb.tusers where username = :user && password = :pass";
+   $query = $conn -> prepare($sql);
+   $query -> bindParam(':user', $susername);
+   $query -> bindParam(':pass', $spassword);
+   $query -> execute();
+   while($row = $query->fetch(PDO::FETCH_ASSOC)){
+       $nickname = $row['nickname'];
+   }
+    $result = $query->rowCount();
+    if($result > 0){
+        $_SESSION['user'] = "ok";
+        $_SESSION['nickname'] = $nickname;
+        header("location:index.php");
+    }
+    else
+    {
+        echo "Error: Wrong Username or Password";
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,24 +53,25 @@ session_start();
             <h6>Asian Institute of Computer Studies</h6>
         </div>
         <div class="navigation">
-                <div class="nav-items">
-                    <h5>HOME</h5>
-                </div>
-                <div class="nav-items">
-                    <h5>PROFILE</h5>
-                </div>
-                <div class="nav-items">
-                    <h5>EVENTS</h5>
-                </div>
-                <div class="nav-items">
-                    <h5>CLASS SCHEDULE</h5>
-                </div>
-                <div class="nav-items">
-                    <h5>Logout</h5>
-                </div>
+            <div class="nav-items">
+            <a class="nav-link" href="logout.php" style="color: black; padding-top: -5px"><h6>PROFILE</h6></a>
+            </div>
+            <div class="nav-items">
+            <a class="nav-link" href="logout.php" style="color: black; padding-top: -5px"><h6>SCHEDULE</h6></a>
+            </div>
+            <div class="nav-items">
+            <a class="nav-link" href="logout.php" style="color: black; padding-top: -5px"><h6>EVENTS</h6></a>
+            </div>
+            <div class="nav-items">
+            <a class="nav-link" href="logout.php" style="color: black; padding-top: -5px"><h6>SUBJECTS</h6></a>
+            </div>
+            <div class="nav-items">
+                <a class="nav-link" href="logout.php" style="color: black; padding-top: -5px"><h6>LOGOUT</h6></a>
+            </div>
             </div>
         </div>
     </div>
+
 
     <div class="content-wrapper">
         <div class="content-header">

@@ -1,3 +1,46 @@
+<?php 
+//check if there is an existing session if there is,
+//it will redirect to index.php
+session_start();
+if(isset($_SESSION['username'])){
+    header("location:index.php");
+}
+//getting database and server info
+
+require "config.php";
+//checking if the submit button is clicked
+//if it's clicked it will retrieve the
+//values from the textbox
+if(isset($_POST['login'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    
+    $sql = "select * from rayanadb.tusers where username = :user and password = :pass ";
+    $query = $conn->prepare($sql);
+    $query -> bindparam(':user', $username);
+    $query -> bindparam(':pass', $password);
+    $query -> execute();
+    //counting the results from the sql string query
+    $count = $query->rowCount();
+    if($count > 0) {
+        //getting the id from the query
+    while($row = $query->fetch(PDO::FETCH_ASSOC)){
+        $id = $row['uid'];
+        $nickname = $row['nickname'];
+    }
+    session_start();
+    //setting the session value using the id
+    $_SESSION['user'] = $uid;  
+    $_SESSION['nickname'] = $nickname;
+    echo "Accepted ID: " . $uid;
+    header("location:index.php");
+    }
+    else{
+        echo "error";
+    }
+    
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +76,7 @@
             </div>
         <div class="container" id="student">
                 <div class="login-content">
-                    <form action="index.html">
+                    <form action="home.php">
                         <img src="img/student.svg">
                         <h2 style="color: rgb(32, 32, 32)">student</h2>
                            <div class="input-div one">
@@ -42,7 +85,7 @@
                               </div>
                               <div class="div">
                                       <h5>Username</h5>
-                                      <input type="text" class="input" name="susername">
+                                      <input type="text" class="input" name="susername" required>
                               </div>
                            </div>
                            <div class="input-div pass">
@@ -51,7 +94,7 @@
                               </div>
                               <div class="div">
                                    <h5>Password</h5>
-                                   <input type="password" class="input" name="spassword">
+                                   <input type="password" class="input" name="spassword" required>
                            </div>
                         </div>
                         <a href="register.php" class="a">Create an Account?</a>
@@ -68,16 +111,16 @@
 
             <div class="container" id="faculty">
                 <div class="login-content">
-                    <form action="index.html" method="POST">
+                    <form action="home2.php" method="POST">
                         <img src="img/teacher.svg">
-                        <h2 style="color: rgb(32, 32, 32)">teacher</h2>
+                        <h2 style="color: rgb(32, 32, 32)">Faculty</h2>
                            <div class="input-div one">
                               <div class="i">
                                       <i class="fas fa-user"></i>
                               </div>
                               <div class="div">
                                       <h5>Username</h5>
-                                      <input type="text" class="input" name="tusername">
+                                      <input type="text" class="input" name="tusername" required>
                               </div>
                            </div>
                            <div class="input-div pass">
@@ -86,7 +129,7 @@
                               </div>
                               <div class="div">
                                    <h5>Password</h5>
-                                   <input type="password" class="input" name="tpassword">
+                                   <input type="password" class="input" name="tpassword" required>
                            </div>
                         </div>
                         <a href="#" class="a">Create an Account?</a>
