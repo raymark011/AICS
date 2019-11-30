@@ -2,6 +2,9 @@
 session_start();
 include_once("myconfig.php");
 
+if(!isset($_SESSION['user'])){
+    header("location:login.php");
+    }  
 ?>
 <!DOCTYPE html>
 <html lang="en">

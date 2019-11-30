@@ -1,62 +1,76 @@
 <?php
 // including the database connection file
-include_once("config.php");
+include_once("myconfig.php");
 
 if(isset($_POST['update']))
 {	
 	$uid = $_POST['uid'];
-	
 	$firstname=$_POST['firstname'];
+	$lastname=$_POST['lastname'];
+	$gender=$_POST['gender'];
 	$age=$_POST['age'];
-	$email=$_POST['email'];	
+	$contactnumber=$_POST['contactnumber'];
 	
 	// checking empty fields
-	if(empty($name) || empty($age) || empty($email)) {	
+	if(empty($firstname) || empty($lastname) || empty($gender) || empty($age) || empty($contactnumber)) {	
 			
-		if(empty($name)) {
+		if(empty($firstname)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
 		}
 		
+		if(empty($lastname)) {
+			echo "<font color='red'>Age field is empty.</font><br/>";
+		}
+		
+		if(empty($gender)) {
+			echo "<font color='red'>Email field is empty.</font><br/>";
+		}	
+
 		if(empty($age)) {
 			echo "<font color='red'>Age field is empty.</font><br/>";
 		}
 		
-		if(empty($email)) {
+		if(empty($contactnumber)) {
 			echo "<font color='red'>Email field is empty.</font><br/>";
 		}		
 	} else {	
 		//updating the table
-		$sql = "UPDATE users SET name=:name, age=:age, email=:email WHERE id=:id";
-		$query = $dbConn->prepare($sql);
+		$sql = "UPDATE rayanadb.tusers SET firstname=:firstname, lastname=:lastname, gender=:gender, age=:age, contactnumber=:contactnumber WHERE uid=:uid";
+		$query = $conn->prepare($sql);
 				
-		$query->bindparam(':id', $id);
-		$query->bindparam(':name', $name);
+		$query->bindparam(':uid', $uid);
+		$query->bindparam(':firstname', $firstname);
+		$query->bindparam(':lastname', $lastname);
+		$query->bindparam(':gender', $gender);
 		$query->bindparam(':age', $age);
-		$query->bindparam(':email', $email);
+		$query->bindparam(':contactnumber', $contactnumber);
 		$query->execute();
 		
 		// Alternative to above bindparam and execute
 		// $query->execute(array(':id' => $id, ':name' => $name, ':email' => $email, ':age' => $age));
 				
 		//redirectig to the display page. In our case, it is index.php
-		header("Location: index.php");
+		header("Location: profile.php");
 	}
 }
 ?>
 <?php
 //getting id from url
-$id = $_GET['id'];
+$uid = $_GET['uid'];
 
 //selecting data associated with this particular id
-$sql = "SELECT * FROM users WHERE id=:id";
-$query = $dbConn->prepare($sql);
-$query->execute(array(':id' => $id));
+$sql = "SELECT * FROM rayanadb.tusers WHERE uid=:uid";
+$query = $conn->prepare($sql);
+$query->execute(array(':uid' => $uid));
 
 while($row = $query->fetch(PDO::FETCH_ASSOC))
 {
-	$name = $row['name'];
+	$uid = $row['uid'];
+	$firstname = $row['firstname'];
+	$lastname = $row['lastname'];
+	$gender = $row['gender'];
 	$age = $row['age'];
-	$email = $row['email'];
+	$contactnumber = $row['contactnumber'];
 }
 ?>
 <html>
@@ -71,19 +85,27 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 	<form name="form1" method="post" action="edit.php">
 		<table border="0">
 			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="name" value="<?php echo $name;?>"></td>
+				<td>First Name</td>
+				<td><input type="text" name="firstname" value="<?php echo $firstname;?>"></td>
+			</tr>
+			<tr> 
+				<td>Last Name</td>
+				<td><input type="text" name="lastname" value="<?php echo $lastname;?>"></td>
+			</tr>
+			<tr> 
+				<td>Gender</td>
+				<td><input type="text" name="gender" value="<?php echo $gender;?>"></td>
 			</tr>
 			<tr> 
 				<td>Age</td>
 				<td><input type="text" name="age" value="<?php echo $age;?>"></td>
 			</tr>
 			<tr> 
-				<td>Email</td>
-				<td><input type="text" name="email" value="<?php echo $email;?>"></td>
+				<td>Contact Number</td>
+				<td><input type="text" name="contactnumber" value="<?php echo $contactnumber;?>"></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
+				<td><input type="hidden" name="uid" value=<?php echo $_GET['uid'];?>></td>
 				<td><input type="submit" name="update" value="Update"></td>
 			</tr>
 		</table>

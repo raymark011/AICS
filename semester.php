@@ -2,6 +2,10 @@
 session_start();
 include_once("myconfig.php");
 
+if(!isset($_SESSION['user'])){
+    header("location:login.php");
+    }   
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,28 +55,23 @@ include_once("myconfig.php");
                         include_once("myconfig.php");
 
                         //fetching data in descending order (lastest entry first)
-                        $result = $conn->query("SELECT * FROM rayanadb.tusers ORDER BY uid DESC");
+                        $result = $conn->query("SELECT * FROM rayanadb.tenrollment ORDER BY eid DESC");
                         ?>
 
                         <table width='100%' border=0>
 
                         <tr bgcolor='#CCCCCC'>
-                            <td>FirstName</td>
-                            <td>Lastname</td>
-                            <td>Gender</td>
-                            <td>Age</td>
-                            <td>ContactNumber</td>
+                            <td>Eid</td>
+                            <td>Year</td>
+                            <td>Semester</td>
                             <td>Update</td>
                         </tr>
                         <?php 	
                         while($row = $result->fetch(PDO::FETCH_ASSOC)) { 		
                             echo "<tr>";
-                            echo "<td>".$row['firstname']."</td>";
-                            echo "<td>".$row['lastname']."</td>";
-                            echo "<td>".$row['gender']."</td>";
-                            echo "<td>".$row['age']."</td>";
-                            echo "<td>".$row['contactnumber']."</td>";
-                            echo "<td><a style=\"color:black\" href=\"edit.php?uid=$row[uid]\">Edit</a> | <a style=\"color:black\" href=\"delete.php?uid=$row[uid]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";		
+                            echo "<td>".$row['year']."</td>";
+                            echo "<td>".$row['semester']."</td>";
+                            echo "<td><a style=\"color:black\" href=\"edit.php?eid=$row[eid]\">Edit</a> | <a style=\"color:black\" href=\"delete.php?eid=$row[eid]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";		
                         }
                         ?>
                     </div>

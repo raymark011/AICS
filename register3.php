@@ -8,7 +8,8 @@
 //including the database connection file
 include_once("myconfig.php");
 session_start();
-if(isset($_POST['register3'])) {	
+if(isset($_POST['register3'])) {
+
     $studentname = $_POST['studentname'];
     $fathersname = $_POST['fathersname'];
 	$fathersage = $_POST['fathersage'];
@@ -66,8 +67,9 @@ if(isset($_POST['register3'])) {
 		// if all the fields are filled (not empty) 
             
 		//insert data to database		
-		$sql3 = "INSERT INTO rayanadb.tstudentparents(studentname, fathersname, fathersage, fathersnumber, mothersname, mothersage, mothersnumber, guardiansname, guardiansage, guardiansnumber) VALUES(:studentname, :fathersname, :fathersage, :fathersnumber, :mothersname, :mothersage, :guardiansname, :guardiansage, :guardiansnumber)";
-        $query = $conn->prepare($sql3);
+		$sql = "INSERT INTO rayanadb.tstudentparents(studentname, fathersname, fathersage, fathersnumber, mothersname, mothersage,mothersnumber, guardiansname, guardiansage, guardiansnumber) VALUES(:studentname, :fathersname, :fathersage, :fathersnumber, :mothersname, :mothersage, :guardiansname, :guardiansage, :guardiansnumber)";
+		$query=$conn->prepare($sql);
+		
 		$query->bindParam(':studentname', $studentname);
         $query->bindParam(':fathersname', $fathersname);
         $query->bindParam(':fathersage', $fathersage);

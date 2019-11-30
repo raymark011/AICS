@@ -27,8 +27,8 @@ if(isset($_POST['register2'])) {
 		// if all the fields are filled (not empty) 
             
 		//insert data to database		
-		$sql2 = "INSERT INTO rayanadb.tenrollment(semester, year) VALUES(:semester, :year)";
-        $query = $conn->prepare($sql2);	
+		$sql = "INSERT INTO rayanadb.tenrollment(semester, year) VALUES(:semester, :year)";
+        $query = $conn->prepare($sql);	
 		$query->bindParam(':semester', $semester);
 		$query->bindParam(':year', $year);
 		echo "<font color='green'>Data added successfully.";
